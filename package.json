@@ -1,7 +1,7 @@
 {
   "name": "trivia_app",
   "version": "0.1.0",
-  "homepage": "https://erionpali.com/trivia-app",
+  "homepage": "https://eerian.github.io/trivia-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
