@@ -13,7 +13,7 @@ export default function Question({apiData, question, setApiData, showAnswers, se
   function handleClick(e) {
     e.preventDefault()
     setClickedChoice(e.target.innerText)
-    setSelectionMade(prev => !prev)
+    setSelectionMade(true)
     setApiData(
       apiData.map((item) => {
         if (question.question === item.question) {
@@ -54,6 +54,5 @@ export default function Question({apiData, question, setApiData, showAnswers, se
         {allChoices}
       </div>
     </div>
-
   )
 }
