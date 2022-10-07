@@ -1,10 +1,13 @@
 * {
   box-sizing: border-box;
   font-family: "Inter";
+  margin: 0;
 }
 
 .app-wrapper {
   background-color: #F5F7FB;
+  /* background-color: lightskyblue; */
+  height: 100vh;
 }
 
 .start-page {
@@ -34,12 +37,14 @@
 }
 
 .yellow-blop {
-  left: 85%;
-  height: 180px
+  left: 91%;
+  top: 0%;
+  height: 220px
 }
 
 .blue-blop {
-  top: 77%;
+  top: 85%;
+  left: 0%;
   height: 150px;
 }
 
@@ -50,7 +55,8 @@
 .start-quiz-button {
   width: 193px;
   height: 52px;
-  top: 314px;
+  top: 315px;
+  margin-top: 20px;
   background-color: #4D5B9E;
   color: #F5F7FB;
   font-size: 110%;
@@ -71,6 +77,8 @@
 .question-text {
   font-size: 145%;
   color: #293264;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .answers-container {
@@ -85,7 +93,6 @@
   background-color: #F5F7FB;
   color: #293264;
   border: 1px solid #4D5B9E;
-  height: 35px;
   border-radius: 12px;
   margin-right: 2%;
   font-size: 80%;
@@ -114,7 +121,7 @@
 }
 
 .play-again-button {
-  margin-top: 5px;
+  margin-top: 25px;
   margin-left: 30px;
 }
 
@@ -150,4 +157,12 @@
 .faded-color {
   color:#8f92a2;;
   border: 1.8px solid #a5a8bb;;
+}
+
+.loading-screen {
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  color: #293264;
+  background-color:#F5F7FB;
 }

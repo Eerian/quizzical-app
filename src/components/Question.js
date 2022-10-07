@@ -1,8 +1,7 @@
 import React from "react";
 import Answer from './Answer'
-import { nanoid } from "nanoid";
 
-export default function Question({apiData, question, setApiData, showAnswers}) {
+export default function Question({apiData, question, setApiData, showAnswers, setSelectionMade}) {
   const [choices , setChoices] = React.useState([])
   const [clickedChoice, setClickedChoice] = React.useState("")
 
@@ -14,6 +13,7 @@ export default function Question({apiData, question, setApiData, showAnswers}) {
   function handleClick(e) {
     e.preventDefault()
     setClickedChoice(e.target.innerText)
+    setSelectionMade(prev => !prev)
     setApiData(
       apiData.map((item) => {
         if (question.question === item.question) {
@@ -26,13 +26,13 @@ export default function Question({apiData, question, setApiData, showAnswers}) {
   }
 
   //decode code gotten from stackoverflow
- function decodeHtml(html) {
-  var txt = document.createElement('textarea');
-  txt.innerHTML = html;
-  return txt.value;
-}
+  function decodeHtml(html) {
+    var txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
+  }
 
-  const allChoices = choices.map(choice => {
+  const allChoices = choices.map((choice, index) => {
     const isCorrectChoice = choice === question.correct_answer ? true : false
 
     return (
@@ -42,7 +42,7 @@ export default function Question({apiData, question, setApiData, showAnswers}) {
         clickedChoice={clickedChoice}
         showAnswers={showAnswers}
         isCorrectChoice={isCorrectChoice}
-        id={nanoid()}
+        key={index}
       />
     )
   })
@@ -56,5 +56,4 @@ export default function Question({apiData, question, setApiData, showAnswers}) {
     </div>
 
   )
-
 }

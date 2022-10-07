@@ -1,6 +1,5 @@
 import React from "react";
-import Question from "./Question";
-import { nanoid } from "nanoid";
+import Question from "./components/Question";
 
 export default function App() {
   const [apiData, setApiData] = React.useState([])
@@ -9,21 +8,26 @@ export default function App() {
   const [quizOver, setQuizOver] = React.useState(false)
   const [quizStart, setQuizStart] = React.useState(false)
   const [startAgain, setStartAgain] = React.useState(false)
+  const [loading, setLoading] = React.useState(true);
   let [count, setCount] = React.useState(0)
+  const [selectionMade, setSelectionMade] = React.useState(false)
 
   React.useEffect(() => {
-    let url = "https://opentdb.com/api.php?amount=5";
-    let encoded = encodeURIComponent(url);
-    let decoded = decodeURIComponent(encoded)
-    fetch(decoded)
+    fetch("https://opentdb.com/api.php?amount=5")
       .then((res) => res.json())
       .then((data) => data.results.map(item => ({...item, selectedAnswer : "", choices : shuffle([...item.incorrect_answers, item.correct_answer])})))
-      .then((data) => setApiData(data))
+      .then((data) => {
+        setApiData(data)
+        setLoading(false);
+      })
   }, [startAgain]);
 
-  function checkAnswers() {
-    setShowAnswers(true)
-    setQuizOver(!quizOver)
+  function checkAnswers(e) {
+    if(selectionMade) {
+      setShowAnswers(true)
+      setQuizOver(!quizOver)
+      setDisabled(!disabled)
+    }
 
     apiData.map(item => {
       if(item.selectedAnswer === item.correct_answer) {
@@ -38,6 +42,7 @@ export default function App() {
     setQuizOver(!quizOver)
     setCount(0)
     setDisabled(!disabled)
+    setSelectionMade(false)
   }
 
   //shuffle function gotten from stackoverflow
@@ -55,31 +60,31 @@ export default function App() {
     return array;
  }
 
-  function handleDisable() {
-    setDisabled(true)
-  }
-
   function handleStart() {
     setQuizStart(!quizStart)
   }
 
-  const allQuestions = apiData.map(question => {
+  const allQuestions = apiData.map((question, index) => {
     return (
       <Question 
         question={question}
         apiData={apiData}
         setApiData={setApiData}
         showAnswers={showAnswers}
-        id={nanoid()}
+        setSelectionMade={setSelectionMade}
+        id={index}
       />
     )
   })
 
+  if(loading) {
+    return <h1 className="loading-screen">Loading...</h1>
+  }
   const pointerEvent = disabled ? "none" : "auto"
   return (
     <div className="app-wrapper">
-      <img className="blue-blop" src={require("../src/images/blue_blop.png")}/>
-      <img className="yellow-blop" src={require("../src/images/yellow_blop.png")}/>
+        <img className="blue-blop" src={require("../src/images/blue_blop.png")}/>
+        <img className="yellow-blop" src={require("../src/images/yellow_blop.png")}/>
         {
         quizStart || startAgain
         ?
@@ -89,7 +94,7 @@ export default function App() {
           </div>
             {!quizOver 
               ?
-                <button onClick={() => {checkAnswers() ; handleDisable()}} className="check-answers-button">Check Answers</button>
+                <button onClick={checkAnswers} className="check-answers-button">Check Answers</button>
               :
               <div className="score-container">
                 <h4 className="correct-answers-count">You Scored {count}/5 correct answers</h4>

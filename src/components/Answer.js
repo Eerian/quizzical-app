@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 
 export default function Answer({choice, handleClick, clickedChoice, isCorrectChoice, showAnswers}) {
     let cssClass = "answers"
@@ -13,10 +12,7 @@ export default function Answer({choice, handleClick, clickedChoice, isCorrectCho
             cssClass += " faded-color"
         }
     }
-    if(choice === clickedChoice) cssClass += " selected"
-
+    if(choice === clickedChoice)  cssClass += " selected"
+    
     return <button className={cssClass} onClick={handleClick}>{choice}</button>
 }
-
-
-// choice === clickedChoice ? "lightblue": "white"
