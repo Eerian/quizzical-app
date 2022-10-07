@@ -92,8 +92,8 @@ export default function App() {
   const pointerEvent = disabled ? "none" : "auto"
   return (
     <div className="app-wrapper">
-        <img className="blue-blop" src={require("../src/images/blue_blop.png")}/>
-        <img className="yellow-blop" src={require("../src/images/yellow_blop.png")}/>
+        <img className="blue-blop" alt="blue-blop" src={require("../src/images/blue_blop.png")}/>
+        <img className="yellow-blop" alt="yellow-blop"src={require("../src/images/yellow_blop.png")}/>
       {
         // quizStart || startAgain
         quizStart
