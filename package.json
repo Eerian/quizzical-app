@@ -1,7 +1,7 @@
 {
   "name": "trivia_app",
   "version": "0.1.0",
-  "homepage": "http://Eerian.github.io/quizzical-app",
+  // "homepage": "http://Eerian.github.io/quizzical-app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
