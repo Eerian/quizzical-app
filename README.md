@@ -7,7 +7,8 @@ Open Trivia Database API used: https://opentdb.com/api_config.php
 
 Learned basic functions of react during this course and building this project.
 
-## Languages
+## Languages / Libraries
+  - JavaScript
   - React
 
 ## Getting Started
