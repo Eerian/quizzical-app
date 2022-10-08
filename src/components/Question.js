@@ -1,7 +1,7 @@
 import React from "react";
 import Answer from './Answer'
 
-export default function Question({apiData, question, setApiData, showAnswers, setSelectionMade}) {
+export default function Question({apiData, question, setApiData, showAnswers}) {
   const [choices , setChoices] = React.useState([])
   const [clickedChoice, setClickedChoice] = React.useState("")
 
@@ -13,7 +13,6 @@ export default function Question({apiData, question, setApiData, showAnswers, se
   function handleClick(e) {
     e.preventDefault()
     setClickedChoice(e.target.innerText)
-    setSelectionMade(true)
     setApiData(
       apiData.map((item) => {
         if (question.question === item.question) {

@@ -88,6 +88,7 @@
   padding-bottom: 2%;
 }
 
+
 .answers {
   margin-right: 10px;
   background-color: #F5F7FB;
@@ -106,7 +107,8 @@
 }
 
 .check-answers-button,
-.play-again-button {
+.play-again-button,
+.faded-check-answers {
   background-color: #4D5B9E;
   border: none;
   color: #F5F7FB;
@@ -117,6 +119,11 @@
 }
 
 .check-answers-button {
+  margin-top: 3%;
+}
+
+.faded-check-answers {
+  background-color: #8c8d8f;
   margin-top: 3%;
 }
 

@@ -9,7 +9,6 @@ export default function App() {
   const [quizStart, setQuizStart] = React.useState(false)
   const [loading, setLoading] = React.useState(true);
   const [count, setCount] = React.useState(0)
-  const [selectionMade, setSelectionMade] = React.useState(false)
 
   React.useEffect(() => {
     fetchData()
@@ -30,23 +29,16 @@ export default function App() {
   }
 
   function checkAnswers() {
-    if(selectionMade) {
       setShowAnswers(true)
       setQuizOver(!quizOver)
       setDisabled(!disabled)
-    }
 
-    // apiData.map(item => {
-    //   if(item.selectedAnswer === item.correct_answer) {
-    //     setCount(count+1)
-    //   }
-    // })
     let sum = apiData.reduce((total, curr) => {
       if(curr.selectedAnswer === curr.correct_answer) return total + 1
       return total
     }, 0)
-    setCount(sum)
-  }
+      setCount(sum)
+    }
 
   function restartQuiz() {
     fetchData()
@@ -54,7 +46,6 @@ export default function App() {
     setQuizOver(!quizOver)
     setCount(0)
     setDisabled(!disabled)
-    setSelectionMade(false)
   }
 
   //shuffle function gotten from stackoverflow
@@ -80,11 +71,12 @@ export default function App() {
         apiData={apiData}
         setApiData={setApiData}
         showAnswers={showAnswers}
-        setSelectionMade={setSelectionMade}
         key={index}
       />
     )
-  })
+  }) 
+  const allSelected = apiData.every(item => item.selectedAnswer !== "");
+
 
   if(loading) {
     return <h1 className="loading-screen">Loading...</h1>
@@ -105,7 +97,7 @@ export default function App() {
               {
                 !quizOver 
                   ?
-                    <button onClick={checkAnswers} className="check-answers-button">Check Answers</button>
+                    <button onClick={checkAnswers} className={allSelected ? "check-answers-button" : "faded-check-answers"} disabled={!allSelected}>Check Answers</button>
                   :
                     <div className="score-container">
                       <h4 className="correct-answers-count">You Scored {count}/5 correct answers</h4>
