@@ -17,7 +17,7 @@
   align-items: center;
   background-color: #F5F7FB;
   width: 90%;
-  height: 900px;
+  height: 100vh;
   margin: 0 auto;
 }
 
@@ -165,4 +165,38 @@
   height: 100vh;
   color: #293264;
   background-color:#F5F7FB;
+}
+
+/* Viewports */
+@media screen and (min-width: 375px) and (max-width: 812px) {
+  .yellow-blop {
+    left: 91%;
+    top: 0%;
+    height: 40px;
+  }
+  
+  .blue-blop {
+    top: 95%;
+    left: 0%;
+    height: 40px;
+  }
+  .questions-container {
+    height: 100vh;
+  }
+
+  .question-text {
+    font-size: 80%;
+  }
+
+  .answers-container {
+    padding-bottom: 5%;
+  }
+
+  .answers {
+    font-size: 70%;
+  }
+  .check-answers-button,
+  .play-again-button {
+    font-size: 70%;
+  }
 }
