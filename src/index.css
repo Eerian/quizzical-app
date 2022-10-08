@@ -168,7 +168,7 @@
 }
 
 /* Viewports */
-@media screen and (min-width: 375px) and (max-width: 812px) {
+@media screen and (min-width: 375px) and (max-width: 700px) {
   .yellow-blop {
     left: 91%;
     top: 0%;
@@ -195,8 +195,28 @@
   .answers {
     font-size: 70%;
   }
+  
   .check-answers-button,
   .play-again-button {
     font-size: 70%;
   }
+
+  .play-again-button {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 50px;
+    padding: 8px 15px;
+    font-size: 50%;
+
+  }
+
+  .score-container {
+    margin-top: 10px;
+  }
+  
+  .correct-answers-count {
+    margin-top: 5px;
+    font-size: 70%;
+  }
 }
+
