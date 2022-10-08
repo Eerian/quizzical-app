@@ -75,8 +75,8 @@ export default function App() {
       />
     )
   }) 
-  const allSelected = apiData.every(item => item.selectedAnswer !== "");
 
+  const allSelected = apiData.every(item => item.selectedAnswer !== "");
 
   if(loading) {
     return <h1 className="loading-screen">Loading...</h1>
