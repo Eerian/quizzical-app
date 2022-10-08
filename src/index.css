@@ -28,6 +28,7 @@
 } */
 
 .start-page-header h2 {
+  margin-left: -15px;
   letter-spacing: 3px;
   font-size: 260%;
 }
@@ -204,7 +205,8 @@
   }
   
   .check-answers-button,
-  .play-again-button {
+  .play-again-button,
+  .faded-check-answers {
     font-size: 70%;
   }
 
