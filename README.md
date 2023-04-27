@@ -1,7 +1,7 @@
 # Quizzial 
 #### A RANDOM TRIVIA APP...
 
-A React app called Quizzical! Project made from scratch and no tutorial as part of Scrimba's React Course (https://scrimba.com/learn/learnreact)
+A React app called Quizzical! Project made from scratch and no tutorial as part of Scrimba's React Course
 
 Open Trivia Database API used: https://opentdb.com/api_config.php
 
